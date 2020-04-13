@@ -11,14 +11,12 @@ pipeline {
       }
     }
     stage('Deploy to AWS') {
-      steps{
-	withAWS(credentials: '3dc5e9f8-a132-497e-9fd7-933ed050ff11', region: 'ap-south-1') {
+      steps
 	sh '''
+	ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-232-218-1.ap-south-1.compute.amazonaws.com
 	pwd
 	whoami
 	'''
       }
     }
-  }
-}
 }
