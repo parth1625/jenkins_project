@@ -4,7 +4,7 @@ pipeline {
     stage('build') {
       steps{
 	sh '. env/bin/activate'
-        sh 'pip install -r requirements.txt'
+        sh 'pip install -r requirements.txt --user'
       }
     }
     stage('test') {
