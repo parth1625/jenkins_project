@@ -1,7 +1,7 @@
 pipeline {
   agent any 
   stages {
-    stage('build') {
+    stage('build and test') {
       steps{
 	sh '''
 	. env/bin/activate
