@@ -12,12 +12,14 @@ pipeline {
     }
     stage('Deploy to AWS') {
       steps{
-	sh '''
-	ssh -tt -o StrictHostKeyChecking=no ubuntu@ec2-13-233-30-168.ap-south-1.compute.amazonaws.com
-	pwd
-	whoami
-	'''
+	sshagent(['ssh-key']) {
+	   sh '''
+	   ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-233-30-168.ap-south-1.compute.amazonaws.com 
+	   pwd
+	   whoami
+	   '''
       }
+	}
     }
   }
 }
