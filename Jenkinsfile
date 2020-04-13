@@ -11,7 +11,7 @@ pipeline {
       }
     }
     stage('Deploy to AWS') {
-      steps
+      steps{
 	sh '''
 	ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-232-218-1.ap-south-1.compute.amazonaws.com
 	pwd
@@ -19,4 +19,6 @@ pipeline {
 	'''
       }
     }
+  }
 }
+
